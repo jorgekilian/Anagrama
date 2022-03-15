@@ -12,7 +12,7 @@ namespace AnagramaSpecs {
 
             var expected = MyAnagram.Run(string.Empty);
 
-            Assert.Equals(expected, string.Empty);
+            Assert.AreEqual(expected, string.Empty);
         }
 
     }
