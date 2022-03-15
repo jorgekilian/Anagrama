@@ -15,11 +15,20 @@ namespace AnagramaSpecs {
             Assert.AreEqual(expected, string.Empty);
         }
 
+        [Test]
+        public void given_a_string_of_length_one_its_anagram_is_a_the_same_string() {
+
+            var expected = MyAnagram.Run("a");
+
+            Assert.AreEqual(expected, "a");
+        }
+
+
     }
 
     public class MyAnagram {
-        public static string Run(string empty) {
-            return string.Empty;
+        public static string Run(string anagram) {
+            return anagram;
         }
     }
 }
