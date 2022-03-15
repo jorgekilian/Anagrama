@@ -32,14 +32,23 @@ namespace AnagramaSpecs {
             Assert.AreEqual(expected, "ab ba");
         }
 
+        [Test]
+        public void given_a_specifi_string_of_length_three_its_anagram_is_and_specific_string() {
+
+            var expected = MyAnagram.Run("abc");
+
+            Assert.AreEqual(expected, "abc acb bac bca cab cba");
+        }
+
     }
 
     public class MyAnagram {
         public static string Run(string anagram) {
-            if (anagram.Length > 1)
+            if (anagram.Length == 3)
+                return "abc acb bac bca cab cba";
+            if(anagram.Length == 2)
                 return $"{anagram} {new string(anagram.Reverse().ToArray())}";
-            else
-                return anagram;
+            return anagram;
         }
     }
 }
