@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 
 namespace AnagramaSpecs {
@@ -11,8 +12,9 @@ namespace AnagramaSpecs {
 
             var expected = MyAnagram.Run(string.Empty);
 
-            Assert.Pass(expected, string.Empty);
+            Assert.Equals(expected, string.Empty);
         }
+
     }
 
     public class MyAnagram {
