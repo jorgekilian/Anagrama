@@ -42,14 +42,6 @@ namespace AnagramaSpecs {
         }
 
         [Test]
-        public void given_a_string_of_length_four_its_anagram_return_24_combinations() {
-
-            var expected = MyAnagram.Run("abcd");
-
-            Assert.AreEqual(expected.Split().Length, 24);
-        }
-
-        [Test]
         public void given_a_string_of_any_length_its_anagram_return_length_factorial_combinations() {
             const string toAnagram = "abcde";
 
