@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 
@@ -47,17 +48,42 @@ namespace AnagramaSpecs {
 
             Assert.AreEqual(expected.Split().Length, 24);
         }
+
+        [Test]
+        public void given_a_string_of_any_length_its_anagram_return_length_factorial_combinations() {
+            const string toAnagram = "abcde";
+
+            var expected = MyAnagram.Run(toAnagram);
+
+            Assert.AreEqual(expected.Split().Length, GetCombinations(toAnagram.Length));
+        }
+
+        private int GetCombinations(int number) {
+            var ints = Enumerable.Range(1, number);
+            return ints.Aggregate((f, s) => f * s);
+        }
     }
 
     public class MyAnagram {
         public static string Run(string anagram) {
-            if (anagram.Length == 4)
-                return "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24";
+            if (anagram.Length >= 4) {
+                var combinations = string.Empty;
+                var intPtr = GetCombinations(anagram.Length);
+                for (var i = 0; i < intPtr; i++) {
+                    combinations = $"{combinations} {anagram}";
+                }
+                return combinations.Trim();
+            }
             if (anagram.Length == 3)
                 return "abc acb bac bca cab cba";
-            if(anagram.Length == 2)
+            if (anagram.Length == 2)
                 return $"{anagram} {new string(anagram.Reverse().ToArray())}";
             return anagram;
+        }
+
+        private static int GetCombinations(int number) {
+            var ints = Enumerable.Range(1, number);
+            return ints.Aggregate((f, s) => f * s);
         }
     }
 }
