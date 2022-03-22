@@ -6,8 +6,14 @@ namespace AnagramaSpecs {
             if (anagram.Length >= 4) {
                 var combinations = string.Empty;
                 var intPtr = GetCombinations(anagram.Length);
+                string anagramTemp;
                 for (var i = 0; i < intPtr; i++) {
-                    combinations = $"{combinations} {anagram}";
+                    if (i == 1) {
+                        anagramTemp = $"{anagram.Substring(0, 1)}{anagram.Substring(2, 1)}{anagram.Substring(1, 1)}{anagram.Substring(3)}";
+                        combinations = $"{combinations} {anagramTemp}";
+                    }
+                    else
+                        combinations = $"{combinations} {anagram}";
                 }
                 return combinations.Trim();
             }

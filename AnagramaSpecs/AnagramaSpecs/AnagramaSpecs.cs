@@ -48,6 +48,15 @@ namespace AnagramaSpecs {
             Assert.AreEqual(expected.Split().Length, GetCombinations(toAnagram.Length));
         }
 
+        [Test]
+        public void given_a_string_its_anagram_the_second_combination_is_the_string_changin_second_and_third_position() {
+            const string toAnagram = "abcde";
+
+            var expected = MyAnagram.Run(toAnagram);
+
+            Assert.AreEqual(expected.Split()[1], "acbde");
+        }
+
         private int GetCombinations(int number) {
             var ints = Enumerable.Range(1, number);
             return ints.Aggregate((f, s) => f * s);
