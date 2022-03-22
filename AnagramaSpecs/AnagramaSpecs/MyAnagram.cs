@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 
 
@@ -10,20 +9,22 @@ namespace AnagramaSpecs {
                 result = string.Empty;
                 var numberOfCombinations = GetCombinations(anagram.Length);
                 var newCombination = anagram;
+
                 for (var i = 0; i < numberOfCombinations; i++) {
-                    if (i == 1) {
+                    var pos = i % numberOfCombinations;
+                    if (pos == 1) {
                         newCombination = $"{anagram.Substring(0, 1)}{anagram.Substring(2, 1)}{anagram.Substring(1, 1)}{anagram.Substring(3)}";
                     }
-                    else if (i == 2) {
+                    else if (pos == 2) {
                         newCombination = $"{anagram.Substring(1, 1)}{anagram.Substring(0, 1)}{anagram.Substring(2)}";
                     }
-                    else if (i == 3) {
+                    else if (pos == 3) {
                         newCombination = $"{anagram.Substring(1, 1)}{anagram.Substring(2, 1)}{anagram.Substring(0, 1)}{anagram.Substring(3)}";
                     }
-                    else if (i == 4) {
+                    else if (pos == 4) {
                         newCombination = $"{anagram.Substring(2, 1)}{anagram.Substring(0, 1)}{anagram.Substring(1, 1)}{anagram.Substring(3)}";
                     }
-                    else if (i == 5) {
+                    else if (pos == 5) {
                         newCombination = $"{anagram.Substring(2, 1)}{anagram.Substring(1, 1)}{anagram.Substring(0, 1)}{anagram.Substring(3)}";
                     }
                     result = $"{result} {newCombination}";
