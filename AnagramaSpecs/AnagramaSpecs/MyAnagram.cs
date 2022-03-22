@@ -4,7 +4,7 @@ using System.Linq;
 namespace AnagramaSpecs {
     public class MyAnagram {
         public static string Run(string anagram) {
-            if (anagram.Length >= 4) {
+            if (anagram.Length >= 3) {
                 var combinations = string.Empty;
                 var intPtr = GetCombinations(anagram.Length);
                 string anagramTemp;
@@ -25,7 +25,7 @@ namespace AnagramaSpecs {
                         anagramTemp = $"{anagram.Substring(2, 1)}{anagram.Substring(0, 1)}{anagram.Substring(1, 1)}{anagram.Substring(3)}";
                         combinations = $"{combinations} {anagramTemp}";
                     }
-                    else if (i == 5) {//first_to_third_position_and_third_to_first
+                    else if (i == 5) {
                         anagramTemp = $"{anagram.Substring(2, 1)}{anagram.Substring(1, 1)}{anagram.Substring(0, 1)}{anagram.Substring(3)}";
                         combinations = $"{combinations} {anagramTemp}";
                     }
@@ -34,8 +34,6 @@ namespace AnagramaSpecs {
                 }
                 return combinations.Trim();
             }
-            if (anagram.Length == 3)
-                return "abc acb bac bca cab cba";
             if (anagram.Length == 2)
                 return $"{anagram} {new string(anagram.Reverse().ToArray())}";
             return anagram;
