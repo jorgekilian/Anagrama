@@ -12,13 +12,21 @@ namespace AnagramaSpecs {
                     if (i == 1) {
                         anagramTemp = $"{anagram.Substring(0, 1)}{anagram.Substring(2, 1)}{anagram.Substring(1, 1)}{anagram.Substring(3)}";
                         combinations = $"{combinations} {anagramTemp}";
-                    } else if (i == 2)
-                    {
+                    }
+                    else if (i == 2) {
                         anagramTemp = $"{anagram.Substring(1, 1)}{anagram.Substring(0, 1)}{anagram.Substring(2)}";
                         combinations = $"{combinations} {anagramTemp}";
                     }
                     else if (i == 3) {
                         anagramTemp = $"{anagram.Substring(1, 1)}{anagram.Substring(2, 1)}{anagram.Substring(0, 1)}{anagram.Substring(3)}";
+                        combinations = $"{combinations} {anagramTemp}";
+                    }
+                    else if (i == 4) {
+                        anagramTemp = $"{anagram.Substring(2, 1)}{anagram.Substring(0, 1)}{anagram.Substring(1, 1)}{anagram.Substring(3)}";
+                        combinations = $"{combinations} {anagramTemp}";
+                    }
+                    else if (i == 5) {//first_to_third_position_and_third_to_first
+                        anagramTemp = $"{anagram.Substring(2, 1)}{anagram.Substring(1, 1)}{anagram.Substring(0, 1)}{anagram.Substring(3)}";
                         combinations = $"{combinations} {anagramTemp}";
                     }
                     else

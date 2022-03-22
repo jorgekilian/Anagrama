@@ -75,6 +75,24 @@ namespace AnagramaSpecs {
             Assert.AreEqual(expected.Split()[3], "bcade");
         }
 
+        [Test]
+        public void given_a_string_its_anagram_the_fith_combination_is_the_string_changin_first_to_second_position_and_second_to_third_and_third_to_first() {
+            const string toAnagram = "abcde";
+
+            var expected = MyAnagram.Run(toAnagram);
+
+            Assert.AreEqual(expected.Split()[4], "cabde");
+        }
+
+        [Test]
+        public void given_a_string_its_anagram_the_sixth_combination_is_the_string_changin_first_to_third_position_and_third_to_first() {
+            const string toAnagram = "abcde";
+
+            var expected = MyAnagram.Run(toAnagram);
+
+            Assert.AreEqual(expected.Split()[5], "cbade");
+        }
+
         private int GetCombinations(int number) {
             var ints = Enumerable.Range(1, number);
             return ints.Aggregate((f, s) => f * s);
