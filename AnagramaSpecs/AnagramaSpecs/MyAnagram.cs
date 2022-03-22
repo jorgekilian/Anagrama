@@ -1,11 +1,13 @@
+using System;
 using System.Linq;
 
-//"abc acb bac bca cab cba"
+
 namespace AnagramaSpecs {
     public class MyAnagram {
         public static string Run(string anagram) {
+            var result = anagram;
             if (anagram.Length >= 3) {
-                var combinations = string.Empty;
+                result = string.Empty;
                 var intPtr = GetCombinations(anagram.Length);
                 var anagramTemp = anagram;
                 for (var i = 0; i < intPtr; i++) {
@@ -24,13 +26,12 @@ namespace AnagramaSpecs {
                     else if (i == 5) {
                         anagramTemp = $"{anagram.Substring(2, 1)}{anagram.Substring(1, 1)}{anagram.Substring(0, 1)}{anagram.Substring(3)}";
                     }
-                    combinations = $"{combinations} {anagramTemp}";
+                    result = $"{result} {anagramTemp}";
                 }
-                return combinations.Trim();
             }
             if (anagram.Length == 2)
-                return $"{anagram} {new string(anagram.Reverse().ToArray())}";
-            return anagram;
+                result = $"{anagram} {new string(anagram.Reverse().ToArray())}";
+            return result.Trim();
         }
 
         private static int GetCombinations(int number) {
