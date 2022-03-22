@@ -17,6 +17,10 @@ namespace AnagramaSpecs {
                         anagramTemp = $"{anagram.Substring(1, 1)}{anagram.Substring(0, 1)}{anagram.Substring(2)}";
                         combinations = $"{combinations} {anagramTemp}";
                     }
+                    else if (i == 3) {
+                        anagramTemp = $"{anagram.Substring(1, 1)}{anagram.Substring(2, 1)}{anagram.Substring(0, 1)}{anagram.Substring(3)}";
+                        combinations = $"{combinations} {anagramTemp}";
+                    }
                     else
                         combinations = $"{combinations} {anagram}";
                 }
